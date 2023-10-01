@@ -1,0 +1,26 @@
+@font-face {
+	font-family: irsMedium;
+	font-style: normal;
+	font-weight: 500;
+	src: url('../fonts/woff/IRANSansXFaNum-Medium.woff') format('woff'),   
+	url('../fonts/woff2/IRANSansXFaNum-Medium.woff2') format('woff2');		 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: irsMedium;
+}
+
+@media only screen and (min-width: 600px) {
+	.Vue-Toastification__container.top-right .Vue-Toastification__toast--rtl,
+	.Vue-Toastification__container.bottom-right .Vue-Toastification__toast--rtl {
+	  margin-right: unset !important;
+	  margin-left: auto !important;
+	  font-family: "irsMedium", Arial, Helvetica, sans-serif !important;
+	}
+}
