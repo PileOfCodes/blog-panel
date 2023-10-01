@@ -17,6 +17,8 @@
     "sass": "^1.68.0"
   },
   "dependencies": {
+    "@tiptap/extension-highlight": "^2.1.11",
+    "@tiptap/extension-image": "^2.1.11",
     "@tiptap/pm": "^2.1.11",
     "@tiptap/starter-kit": "^2.1.11",
     "@tiptap/vue-3": "^2.1.11",

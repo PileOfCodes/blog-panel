@@ -24,9 +24,15 @@
         <v-divider></v-divider>
 
         <v-list density="compact" nav>
-          <v-list-item prepend-icon="mdi-note-text-outline" title="articles" value="articles"></v-list-item>
-          <v-list-item prepend-icon="mdi-account" title="My Account" value="account"></v-list-item>
-          <v-list-item prepend-icon="mdi-account-group-outline" title="Users" value="users"></v-list-item>
+          <NuxtLink to="/" :class="{'text-teal-accent-3' : $route.path == '/'}">
+            <v-list-item prepend-icon="mdi-view-dashboard" title="داشبورد" ></v-list-item>
+          </NuxtLink>
+          <NuxtLink to="/articles" :class="{'text-teal-accent-3' : $route.path.includes('/articles')}">
+            <v-list-item prepend-icon="mdi-note-text-outline" title="مقالات" ></v-list-item>
+          </NuxtLink>
+          <NuxtLink to="/users" :class="{'text-teal-accent-3' : $route.path.includes('/users')}">
+            <v-list-item prepend-icon="mdi-account" title="کاربران"></v-list-item>
+          </NuxtLink>
         </v-list>
       </v-navigation-drawer>
     
