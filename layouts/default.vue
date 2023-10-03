@@ -27,6 +27,9 @@
           <NuxtLink to="/" :class="{'text-teal-accent-3' : $route.path == '/'}">
             <v-list-item prepend-icon="mdi-view-dashboard" title="داشبورد" ></v-list-item>
           </NuxtLink>
+          <NuxtLink to="/drafts" :class="{'text-teal-accent-3' : $route.path.includes('/drafts')}">
+            <v-list-item prepend-icon="mdi-file-edit-outline" title="پیش نویس ها" ></v-list-item>
+          </NuxtLink>
           <NuxtLink to="/articles" :class="{'text-teal-accent-3' : $route.path.includes('/articles')}">
             <v-list-item prepend-icon="mdi-note-text-outline" title="مقالات" ></v-list-item>
           </NuxtLink>

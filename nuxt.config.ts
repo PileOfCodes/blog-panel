@@ -7,7 +7,10 @@ export default defineNuxtConfig({
     'vuetify/lib/styles/main.sass',
     '@mdi/font/css/materialdesignicons.min.css'
   ],
-  modules: ['@unlazy/nuxt'],
+  modules: [
+    '@unlazy/nuxt',
+    "nuxt-lodash"
+],
   unlazy: {
     ssr: false
   },
