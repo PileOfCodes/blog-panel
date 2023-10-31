@@ -1,6 +1,9 @@
 <template>
     <div>
-        <BreadCrumbs :items="items" />
+        <div class="d-flex justify-space-between">
+            <BreadCrumbs :items="items" />
+            <Delete :draftId="draft.id" />
+        </div>
         <div class="mt-4">
             <UpdateEditor v-model="draft.content" :title="draft.title" />
         </div>

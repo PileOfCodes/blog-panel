@@ -11,7 +11,7 @@
                         :ripple="false" 
                         density="compact"
                         size="large" 
-                        variant="flat">ایجاد پیش نویس</v-btn>
+                        variant="flat">ایجاد پیش نویس</v-btn >
                     </template>
                 </v-hover>
             </NuxtLink>
@@ -53,12 +53,22 @@
                             <NuxtLink :to="`/drafts/edit/${draft.id}`">
                                 <v-icon icon="mdi-pencil"></v-icon>
                             </NuxtLink>
-                            <v-btn icon="mdi-delete"></v-btn>
-                            <NuxtLink to="/articles/create"> ایجاد پست</NuxtLink>
+                            <NuxtLink :to="`/articles/create/${draft.id}`">
+                                <v-hover>
+                                    <template v-slot:default="{isHovering, props}">
+                                        <v-btn v-bind="props" :class="isHovering ? 'text-teal-accent-3' : ''" class="ma-2"> ایجاد پست</v-btn>
+                                    </template>
+                                </v-hover>
+                            </NuxtLink>
                         </td>
                     </tr>
                 </tbody>
             </v-table>
+            <div v-if="data.meta.last_page > 1" class="d-flex justify-center mt-12" style="direction: ltr;">
+                <div v-for="link in data.meta.links.slice(1,-1)" :key="link.label">
+                    <v-btn class="mr-2" :class="{'bg-teal-accent-3' : link.active}" @click="paginate(link.label)"> {{ link.label }}</v-btn>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -71,11 +81,17 @@ const items = [
       href: '/drafts',
     }
 ]
+const page = ref(0)
 
 const {data, refresh} = await useFetch('/api/global', {
-    query: {uri: '/drafts'},
+    query: {uri: '/drafts', page},
     headers: useRequestHeaders(['cookie'])
 })
+
+function paginate(number) {
+    page.value = number
+    refresh()
+}
 
 definePageMeta({
     middleware: 'auth'

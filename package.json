@@ -23,6 +23,8 @@
     "@tiptap/pm": "^2.1.11",
     "@tiptap/starter-kit": "^2.1.11",
     "@tiptap/vue-3": "^2.1.11",
+    "form-data": "^4.0.0",
+    "h3-formidable": "^1.0.0",
     "vue-toastification": "^2.0.0-rc.5",
     "vuetify": "^3.3.17"
   }
